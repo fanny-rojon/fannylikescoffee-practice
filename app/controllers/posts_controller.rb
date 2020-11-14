@@ -33,4 +33,13 @@ class PostsController < ApplicationController
 
   def show
   end
+
+  def destroy
+    if @post.destroy
+      flash[:notice] = "Successfully deleted post!"
+      redirect_to posts_path
+    else
+      flash[:alert] = "Error updating post!"
+    end
+  end
 end
