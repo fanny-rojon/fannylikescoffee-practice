@@ -42,4 +42,10 @@ class PostsController < ApplicationController
       flash[:alert] = "Error updating post!"
     end
   end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :category_id, :body, :media)
+  end
 end
